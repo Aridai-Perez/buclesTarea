@@ -33,7 +33,7 @@ function entradaUsuario(arr) {
     message(arr,username,age);
 }
 
-//entradaUsuario(colectionMovies);
+entradaUsuario(colectionMovies);
 
 // /2. Highest number
 // Write a program that asks for 10 numbers. 
@@ -58,7 +58,7 @@ function numMayor(numbers) {
     alert("No lo creeras, el numero mayor es " + numbers[0])
 }
 
-//numMayor(numbers);
+numMayor(numbers);
 
 // /3. Alarm
 // Write a program that asks a user for the amount of seconds needed until an alarm 
@@ -69,7 +69,6 @@ function alarma() {
     let seconds = prompt("Bienvenide! \nSi quieres configurar una alerta para dormir dime a los cuantos segundos quieres recibirla :)")
     seconds = seconds * 1000;
     let secondsReal = parseInt(seconds, 10);
-    console.log(typeof(secondsReal))
 
     setTimeout(() => {
         alert(`Ya pasaron ${seconds/1000} segundos, hora de dormir`);
@@ -82,6 +81,17 @@ alarma();
 // /4. Palindrome
 // Write a program that prompts for a word or sentence (it can be capitalized, have spaces and punctuation). 
 // Figure out if the sentence/word is a palindrome or not. Ignoring punctuation, spaces and capitalized letters./
+
+let palabra = prompt("Ingresa la palabra para evaluar si es un palíndromo:")
+function palindromo(palabra) {
+    palabra = palabra.toLowerCase().replace(/\s/g, ''); // Convertir la palabra a minúsculas y quitar los espacios
+    return palabra === palabra.split('').reverse().join(''); // Comparar la palabra original con su inversa
+  }
+  if (palindromo(palabra)) {
+    console.log(palabra + ' es un palíndromo');
+  } else {
+    console.log(palabra + ' no es un palíndromo');
+  }
 
 // /5. Factorial
 // Write a program that prompts for an intenger number n. Where  1 <= n. Solve this using recursion./
