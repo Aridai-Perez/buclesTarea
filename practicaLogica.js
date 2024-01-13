@@ -24,28 +24,60 @@ function entradaUsuario(arr) {
     alert("Ahora podrias decirme al menos 3 peliculas favoritas?")
 
     while(count<=3){
-        peliUsuario = prompt("pelicula " + count)
+        peliUsuario = prompt("ingresa tu pelicula " + count)
         agregarPeli(arr);
         count++
-        
     }
     alert("Gracias!!")
     console.log(arr.join(", "))
     message(arr,username,age);
 }
 
-entradaUsuario(colectionMovies);
+//entradaUsuario(colectionMovies);
 
 // /2. Highest number
 // Write a program that asks for 10 numbers. 
 // Using logical operators and any other javascript functions/structures you've seen before, 
 // determine and output the highest of those numbers.
-// /
+
+let numbers = [];
+
+function numMayor(numbers) {
+    
+    alert("Bienvenido, te ayudare a saber cual de 10 numeros es mayor.")
+    let count = 1;
+    while(count<=10){
+        let entradaUsuario = prompt(count + " Ingresa tu numero")
+        numbers.push(entradaUsuario)
+        count++
+    }
+    numbers.sort(function(a, b) {
+        return b - a;
+      });
+
+    alert("No lo creeras, el numero mayor es " + numbers[0])
+}
+
+//numMayor(numbers);
 
 // /3. Alarm
 // Write a program that asks a user for the amount of seconds needed until an alarm 
 // (message) is executed alongside a text to show once those seconds have passed in real time.
 // Result example: "Time for bed after 10 seconds"./
+
+function alarma() {
+    let seconds = prompt("Bienvenide! \nSi quieres configurar una alerta para dormir dime a los cuantos segundos quieres recibirla :)")
+    seconds = seconds * 1000;
+    let secondsReal = parseInt(seconds, 10);
+    console.log(typeof(secondsReal))
+
+    setTimeout(() => {
+        alert(`Ya pasaron ${seconds/1000} segundos, hora de dormir`);
+      }, secondsReal);
+
+}
+
+alarma();
 
 // /4. Palindrome
 // Write a program that prompts for a word or sentence (it can be capitalized, have spaces and punctuation). 
@@ -59,7 +91,3 @@ entradaUsuario(colectionMovies);
 // Use any type of algorithm you want like callbacks, recursion, etc...
 // let multiDimension = [1, [2, 3, [4, 5, [6]]]];
 // */
-
-let saludo = prompt("hola como estas");
-
-alert(saludo);
